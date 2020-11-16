@@ -7,16 +7,16 @@ if (msg.mentions.members.first() == null)
     msg.channel.send({embed: {
         author: {
             name: bot.user.username,
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
-        description: `Ваш аватар!: [Здесь](${msg.author.avatarURL})`,
+        description: `Ваш аватар!: [Здесь](${msg.author.avatarURL({dynamic: true, size: 2048})})`,
         color: 0xf8f105,
         image: {
-            url: msg.author.avatarURL
+            url: msg.author.avatarURL({dynamic: true, size: 2048})
         },
         timestamp: new Date(),
         footer: {
-          icon_url: msg.author.avatarURL,
+          icon_url: msg.author.avatarURL(),
           text: msg.author.username
         }
       }
@@ -28,16 +28,16 @@ else if (msg.mentions.members.first() != null)
 msg.channel.send({embed: {
     author: {
         name: bot.user.username,
-        icon_url: bot.user.avatarURL
+        icon_url: bot.user.avatarURL()
       },
-    description: `Аватар пользователя ${msg.mentions.members.first().user.username}!: [Здесь](${msg.mentions.members.first().user.avatarURL})`,
+    description: `Аватар пользователя ${msg.mentions.members.first().user.username}!: [Здесь](${msg.mentions.members.first().user.avatarURL({dynamic: true, size: 2048})})`,
     color: 0x4df055,
     image: {
-        url: msg.mentions.members.first().user.avatarURL
+        url: msg.mentions.members.first().user.avatarURL({dynamic: true, size: 2048})
     },
     timestamp: new Date(),
     footer: {
-      icon_url: msg.author.avatarURL,
+      icon_url: msg.author.avatarURL(),
       text: msg.author.username
     }
   }

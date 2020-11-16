@@ -6,11 +6,11 @@ module.exports.run = async (bot, message, args) => { //модуль старт
     get("https://neko-love.xyz/api/v1/neko/", { header: { "Content-Type": "application/json" } })
     .then(res => {
     try {
-        let embed = new Discord.RichEmbed() //ембед
-        .setAuthor(bot.user.username, bot.user.avatarURL) //автор
+        let embed = new Discord.MessageEmbed() //ембед
+        .setAuthor(bot.user.username, bot.user.avatarURL()) //автор
             .setColor(0xf8f105) //цвет полоски
             .setImage(res.data.url) //маленькая картинка справа текста
-            .setFooter("Love ", message.author.avatarURL) //строчка в конце
+            .setFooter("Love ", message.author.avatarURL()) //строчка в конце
             .setTimestamp(new Date()) //время отправления
 
         message.channel.send({ //отправление

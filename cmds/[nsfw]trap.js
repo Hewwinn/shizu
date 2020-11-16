@@ -14,11 +14,11 @@ module.exports.run = async (bot, message, args) => { //модуль старт
 
  try {
     message.delete(); 
-    let embed = new Discord.RichEmbed() //ембед
-      .setAuthor(bot.user.username, bot.user.avatarURL) //автор
+    let embed = new Discord.MessageEmbed() //ембед
+      .setAuthor(bot.user.username, bot.user.avatarURL()) //автор
         .setColor(0xf8f105) //цвет полоски
         .setImage((await response).url) //маленькая картинка справа текста
-        .setFooter("Love ", message.author.avatarURL) //строчка в конце    
+        .setFooter("Love ", message.author.avatarURL()) //строчка в конце    
         .setTimestamp(new Date()) //время отправления
      
         message.channel.send({ //отправление

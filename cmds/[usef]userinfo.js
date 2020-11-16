@@ -9,6 +9,8 @@ const strftime = require("strftime");
     let argsUser;
     if (member) argsUser = member.user;
     else argsUser = message.author;
+ 
+message.delete();
 
     let statuses = {
       online: "В сети",
@@ -40,7 +42,7 @@ const strftime = require("strftime");
   
 
 
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setTitle(argsUser.username)
   
 
@@ -72,7 +74,7 @@ const strftime = require("strftime");
         "Роли",
         message.guild
           .member(argsUser)
-          .roles.filter((r) => r.id != message.guild.id)
+          .roles.cache.filter((r) => r.id != message.guild.id)
           .map((role) => role.name)
           .join(", ") || "...",
           true
@@ -84,14 +86,14 @@ const strftime = require("strftime");
         )
         .addField(
           "Аватар:",
-          (`[Здесь](${argsUser.avatarURL})`),
+          (`[Здесь](${argsUser.avatarURL({dynamic: true, size: 2048})})`),
           true
           )
 
       
       .setColor(message.guild.member(argsUser).displayHexColor)
       .setTimestamp()
-      .setThumbnail(argsUser.avatarURL)
+      .setThumbnail(argsUser.avatarURL())
       .setFooter(`ID: "${argsUser.id}"`);
     message.channel.send(embed);
       }

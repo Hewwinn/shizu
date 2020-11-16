@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => { //модуль старт
     if (message.mentions.members.first() != null) 
     try {
     let embed = new Discord.RichEmbed() //ембед
-      .setAuthor(bot.user.username, bot.user.avatarURL) //автор
+      .setAuthor(bot.user.username, bot.user.avatarURL()) //автор
         .setColor(0xf8f105) //цвет полоски
         .setTitle(message.author.username + " погладил(а) " + message.mentions.members.first().user.username + "а(у)!")
         .setImage((await response).url) //маленькая картинка справа текста
-        .setFooter("Love ", message.author.avatarURL) //строчка в конце    
+        .setFooter("Love ", message.author.avatarURL()) //строчка в конце    
         .setTimestamp(new Date()) //время отправления
      
         message.channel.send({ //отправление
@@ -29,11 +29,11 @@ module.exports.run = async (bot, message, args) => { //модуль старт
 else if (message.mentions.members.first() == null)  
 try {
 let embed = new Discord.RichEmbed() //ембед
-  .setAuthor(bot.user.username, bot.user.avatarURL) //автор
+  .setAuthor(bot.user.username, bot.user.avatarURL()) //автор
     .setColor(0xf8f105) //цвет полоски
     .setTitle("Укажите пожалуйста пользователя.")
-    .setThumbnail(message.author.avatarURL)
-    .setFooter("Love ", message.author.avatarURL) //строчка в конце    
+    .setThumbnail(message.author.avatarURL())
+    .setFooter("Love ", message.author.avatarURL()) //строчка в конце    
     .setTimestamp(new Date()) //время отправления
  
     message.channel.send({ //отправление

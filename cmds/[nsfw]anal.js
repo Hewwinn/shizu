@@ -5,10 +5,13 @@ module.exports.run = async (bot, message, args) => { //модуль старт
     const client = require('nekos.life');
     const neko = new client();
 
-    let response = neko.sfw.smug();
+    let response = neko.nsfw.anal();
+
+    if (!message.channel.nsfw) return message.channel.send("Вы находитесь не в NSFW канале!")
 
 
  try {
+    message.delete(); 
     let embed = new Discord.MessageEmbed() //ембед
       .setAuthor(bot.user.username, bot.user.avatarURL()) //автор
         .setColor(0xf8f105) //цвет полоски
@@ -19,7 +22,7 @@ module.exports.run = async (bot, message, args) => { //модуль старт
         message.channel.send({ //отправление
         embed //ембеда в чат
     })
-     message.delete(); 
+    
   } catch (e) { //при ошибке
        message.reply(e.message) //выводит сообщение в чат
    }
@@ -28,5 +31,5 @@ module.exports.run = async (bot, message, args) => { //модуль старт
     
 
 module.exports.help = { //настройка модуля
-    name: "smug" //комманда, название модуля
+    name: "anal" //комманда, название модуля
 }

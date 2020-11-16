@@ -4,11 +4,11 @@ module.exports.run = async (bot, msg, args) => {
     let prefix = config.prefix; //применение конфина
     msg.delete();
     try {
-        let embed = new Discord.RichEmbed() //ембед
-        .setAuthor(bot.user.username, bot.user.avatarURL) //автор
+        let embed = new Discord.MessageEmbed() //ембед
+        .setAuthor(bot.user.username, bot.user.avatarURL()) //автор
             .setTitle(`${bot.user.username} помощь в коммандах`) //тайтл
             .setColor(0xf8f105) //цвет полоски
-            .setThumbnail(bot.user.avatarURL) //маленькая картинка справа текста
+            .setThumbnail(bot.user.avatarURL()) //маленькая картинка справа текста
             .setDescription("Вот мои комманды для битвы: \n \n `Shizu уничтожить` - комманда для битвы.") //описание
             .setFooter('🛠Бот ещё в разработке, есть предложения пишите всегда рад!') //строчка в конце
             .setTimestamp() //время отправления

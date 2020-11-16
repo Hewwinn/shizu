@@ -4,12 +4,12 @@ module.exports.run = async (bot, msg, args) => {
     let prefix = config.prefix; //применение конфина
     msg.delete();
     try {
-        let embed = new Discord.RichEmbed() //ембед
-        .setAuthor(bot.user.username, bot.user.avatarURL) //автор
+        let embed = new Discord.MessageEmbed() //ембед
+        .setAuthor(bot.user.username, bot.user.avatarURL()) //автор
             .setTitle(`${bot.user.username} помощь в коммандах`) //тайтл
             .setColor(0xf8f105) //цвет полоски
-            .setThumbnail(bot.user.avatarURL) //маленькая картинка справа текста
-            .setDescription("Вот мои NSFW комманды: \n \n `^anal`, `^bj`, `^blowjob`, `^boobs`, `^classic`, `^ero`, `^erofeet`, `^erokemonomini`, `^erokitsune`, `^eroneko`, `^eroyuri`, `^feet`, `^feetgif`, `^femdom`, `^futanari`, `^gasm`, `^gs`, `^gsg`, `^hentai`, `^holop`, `^holoero`, `^kemonomini`, `^keta`, `^kitsune`, `^kuni`, `^lesbian`, `^nekog`, `^nekol`, `^pussy`, `^pussya`, `^pwg`, `^spank`, `^tits`, `^trap`, `^yuri`") //описание
+            .setThumbnail(bot.user.avatarURL()) //маленькая картинка справа текста
+            .setDescription("Вот мои NSFW комманды: \n \n `^bj`, `^femdom`, `^futanari`, `^gasm`, `^gs`, `^gsg`, `^hentai`, `^holop`, `^holoero`, `^kemonomini`, `^kitsune`, `^kuni`, `^lesbian`, `^nekog`, `^nekol`, `^trap`, `^yuri`") //описание
             .setFooter('🛠Бот ещё в разработке, есть предложения пишите всегда рад!') //строчка в конце
             .setTimestamp() //время отправления
 
