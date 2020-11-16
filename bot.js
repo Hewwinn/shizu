@@ -17,14 +17,14 @@ const ownerId = "334642472175009792"
 bot.on('message', message => {
   if (!message.guild) return;
   if (message.content.startsWith('^kick')) {
-    const user = message.mentions.users.first();
+    const user = message.mentions.members.first();
     if (user) {
       const member = message.guild.member(user);
       if (member) {
         member
           .kick('Optional reason that will display in the audit logs')
           .then(() => {
-            message.reply(`Successfully kicked ${user.tag}`);
+            message.reply(`Successfully kicked ${member.user.tag}`);
           })
           .catch(err => {
             message.reply('I was unable to kick the member');
@@ -73,8 +73,8 @@ bot.on('ready', function() {
     setInterval(async () => {
   const statuslist = [
     `^help | Version 0.5.3`,
-    `^help | ${bot.channels.size} каналов`,
-    `^help | ${bot.users.size} пользователей`,
+    `^help | ${bot.channels.cache.filter((m) => m.type === "text").size} каналов`,
+    `^help | ${bot.users.cache.size} пользователей`,
     `^help | Golden Night`,
     `^help | Update`,
     `^help | Anime`,
@@ -90,7 +90,7 @@ bot.on('ready', function() {
   
   try {
     await bot.user.setPresence({
-      game: {
+      activity: {
         name: `${statuslist[random]}`,
         type: "PLAYING"
       },
@@ -155,7 +155,7 @@ bot.on('message', (message, args) => {
     if(message.content === "Shizu уничтожить " + message.mentions.members.first()){ 
         if (message.author.id === ownerId) {
           try {
-            let embed = new Discord.RichEmbed() 
+            let embed = new Discord.MessageEmbed() 
              .setAuthor(bot.user.username, bot.user.avatarURL) 
              .setTitle("Комманда временно не доступна! " + message.mentions.members.first().user.username + " будет уничтожен(а ) позже.") 
              .setColor(0xf8f105) 
@@ -164,7 +164,7 @@ bot.on('message', (message, args) => {
              .setTimestamp() 
         
             //try {
-             //   let embed = new Discord.RichEmbed() 
+             //   let embed = new Discord.MessageEmbed() 
                // .setAuthor(bot.user.username, bot.user.avatarURL) 
                //     .setTitle(fas.phrases[Math.floor(Math.random() * fas.phrases.length)])
                //     .setColor(0x4df055)
