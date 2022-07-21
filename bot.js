@@ -72,18 +72,18 @@ bot.on('message', message => {
 bot.on('ready', function() {
     setInterval(async () => {
   const statuslist = [
-    `^help | Version 0.5.3`,
-    `^help | ${bot.channels.cache.filter((m) => m.type === "text").size} каналов`,
-    `^help | ${bot.users.cache.size} пользователей`,
+    `^help | Version 0.5.5`,
+    `^help | ${bot.channels.cache.filter((m) => m.type === "text").size} каналів`,
+    `^help | ${bot.users.cache.size} корустувачів`,
     `^help | Golden Night`,
     `^help | Update`,
     `^help | Anime`,
     `^help | yummyanime.club`,
-    `^help | Бот в разработке`,
-    `^help | Игры`,
+    `^help | Бот в розробці`,
+    `^help | Ігри`,
     `^help | ПК`,
-    `^help | Программирование`,
-    `^help | Железо в ПК`, 
+    `^help | Програмування`,
+    `^help | Залізо в ПК`, 
 
   ];
   const random = Math.floor(Math.random() * statuslist.length);
@@ -151,84 +151,74 @@ bot.on('message', (message, args) => {
 
 
 //const fas = require("./cmds/json/Shizuunichtojit.json"); 
-bot.on('message', (message, args) => {   
-    if(message.content === "Shizu уничтожить " + message.mentions.members.first()){ 
-        if (message.author.id === ownerId) {
-          try {
-            let embed = new Discord.MessageEmbed() 
-             .setAuthor(bot.user.username, bot.user.avatarURL) 
-             .setTitle("Комманда временно не доступна! " + message.mentions.members.first().user.username + " будет уничтожен(а ) позже.") 
-             .setColor(0xf8f105) 
-             .setThumbnail("https://pngimg.com/uploads/exclamation_mark/exclamation_mark_PNG35.png")
-             .setFooter('Love') 
-             .setTimestamp() 
+//bot.on('message', (message, args) => {   
+   // if(message.content === "Shizu уничтожить " + message.mentions.members.first()){ 
+       // if (message.author.id === ownerId) {
+        //  try {
+         //   let embed = new Discord.MessageEmbed() 
+          //   .setAuthor(bot.user.username, bot.user.avatarURL) 
+           //  .setTitle("Комманда временно не доступна! " + message.mentions.members.first().user.username + " будет уничтожен(а ) позже.") 
+           //  .setColor(0xf8f105) 
+           //  .setThumbnail("https://pngimg.com/uploads/exclamation_mark/exclamation_mark_PNG35.png")
+            // .setFooter('Love') 
+             //.setTimestamp() 
         
-            //try {
-             //   let embed = new Discord.MessageEmbed() 
-               // .setAuthor(bot.user.username, bot.user.avatarURL) 
-               //     .setTitle(fas.phrases[Math.floor(Math.random() * fas.phrases.length)])
-               //     .setColor(0x4df055)
-                //    .setImage(fas.image[Math.floor(Math.random() * fas.image.length)])
-                //    .setDescription(`Слушаюсь мой господин, ` + message.mentions.members.first().user.username + " скоро будет уничтожен(а)!") 
-                 //   .setFooter('') 
-              //  .setTimestamp() 
+         //   try {
+           //     let embed = new Discord.MessageEmbed() 
+            //    .setAuthor(bot.user.username, bot.user.avatarURL) 
+             //     .setTitle(fas.phrases[Math.floor(Math.random() * fas.phrases.length)])
+            //       .setColor(0x4df055)
+             //      .setImage(fas.image[Math.floor(Math.random() * fas.image.length)])
+             //      .setDescription(`Слушаюсь мой господин, ` + message.mentions.members.first().user.username + " скоро будет уничтожен(а)!") 
+          //          .setFooter('') 
+         //      .setTimestamp() 
         
-                message.channel.send({ 
-                    embed 
-                }); 
-            } catch (e) { 
-                message.reply(e.message)
-            }
-}}});
+        //        message.channel.send({ 
+         //           embed 
+         //       }); 
+         //   } catch (e) { 
+          //      message.reply(e.message)
+         //   }
+//}}});
 
 
 
 bot.on('message', (message) => {  
-    if(message.content === "Shizu помоги"){ 
-    message.channel.send("Я занята!") 
+    if(message.content === "Shizu допоможи"){ 
+    message.channel.send("Я зайнята!") 
 }});
 
 bot.on('message', (message) => { 
-    if(message.content === "Shizu привет"){ 
-    message.channel.send("И тебе привет!") 
+    if(message.content === "Shizu привіт"){ 
+    message.channel.send("І тобі привіт!") 
 }});
 
 bot.on('message', (message) => {  
-    if(message.content === "Shizu да пошла ты"){ 
-    message.channel.send("Сам иди!") 
+    if(message.content === "Shizu да пішла ти"){ 
+    message.channel.send("Сам йди!") 
 }});
 
 bot.on('message', (message) => {
     if(message.content === "Ебать"){ 
-    message.channel.send("Что случилось!") 
-}});
-
-bot.on('message', (message) => { 
-    if(message.content === "Ч"){ 
-    message.channel.send("Чебоксары") 
-}});
-
-bot.on('message', (message) => { 
-    if(message.content === "ч"){ 
-    message.channel.send("Чебоксары") 
+    message.channel.send("Що сталось!") 
 }});
 
 
 
-fs.readdir('./cmds/', (err,files)=>{ //где хронятся файлы с модулями
+fs.readdir('./cmds/', (err,files)=>{ //де зберігаються файли з модулями
     if(err) console.log(err); //основа бота
-    let prefix = config.prefix //конфиг префикса
+    let prefix = config.prefix //конфіг префікса
     let jsfiles = files.filter(f => f.split(".").pop() === "js"); //основа бота
-    if(jsfiles.length <=0) console.log("Команд в папке cmds не обнаружено"); //если модулей не обнаружено
-    console.log(`info: Загружено ${jsfiles.length} команд`); //если комманды найдены
+    if(jsfiles.length <=0) console.log("Команд в папці cmds не виявлено"); //якщо модулів не виявлено
+    console.log(`info: Завантажено ${jsfiles.length} команд`); //якщо комманди знайдені
     });
     function loadCmds() { //основа бота
-      fs.readdir('./cmds/', (err, files) => { //часть бота
+      fs.readdir('./cmds/', (err, files) => { 
   
-          if (err) console.log(err); //часть бота
+          if (err) console.log(err); 
   
-          let jsfile = files.filter(f => f.split(".").pop() === "js") //часть бота
-          if (jsfile.length <= 0) { //часть бота
+          let jsfile = files.filter(f => f.split(".").pop() === "js") 
+          if (jsfile.length <= 0) {
               return; //повтор            
           }
           jsfile.forEach((f, i) => {
@@ -238,40 +228,40 @@ fs.readdir('./cmds/', (err,files)=>{ //где хронятся файлы с м�
           });
       });
   }
-  loadCmds(); //часть бота
+  loadCmds(); 
   
   bot.on('ready', () => { //об'являем
-    console.log(`info: Привет я ${bot.user.username}`); //если бот запустился приветствие
-    bot.generateInvite(["ADMINISTRATOR"]).then(link => { //генерирует инвайт бота
-     console.log("Инвайт бота: " + link); //тоже инвайт
+    console.log(`info: Привіт я ${bot.user.username}`); //якщо бот запустився вітання
+    bot.generateInvite(["ADMINISTRATOR"]).then(link => { //генерує інвайт бота
+     console.log("Інвайт бота: " + link); //теж інвайт
     })
   });
   
   bot.on('message', async message => { //об'ява
-  if(message.author.bot) return; //часть бота
-  if(message.channel.type == "dm") return; //часть бота дм
-  let user = message.author.username; //часть бота с никами
-  let userid = message.author.id; //часть бота
-  let messageArray = message.content.split(" "); //часть бота
-  let command = messageArray[0].toLowerCase(); //часть бота
-  let args = messageArray.slice(1); //часть бота
-  if(!message.content.startsWith(prefix)) return; //часть бота
-  let cmd = bot.commands.get(command.slice(prefix)); //часть бота
-  if(cmd)cmd.run(bot,message,args); //часть бота
+  if(message.author.bot) return; //частина бота
+  if(message.channel.type == "dm") return; //частина бота дм
+  let user = message.author.username; //частина бота з ніками
+  let userid = message.author.id; //частина бота
+  let messageArray = message.content.split(" "); //частина бота
+  let command = messageArray[0].toLowerCase(); //частина бота
+  let args = messageArray.slice(1); //частина бота
+  if(!message.content.startsWith(prefix)) return; //частина бота
+  let cmd = bot.commands.get(command.slice(prefix)); //частина бота
+  if(cmd)cmd.run(bot,message,args); //частина бота
   });
   bot.on("message", msg => { //об'ява
-      if (msg.author.bot) return; //часть бота
-      if (msg.channel.type === "dm") return; //часть бота дм
+      if (msg.author.bot) return; //частина бота
+      if (msg.channel.type === "dm") return; //частина бота дм
   
-      if (!msg.content.startsWith(prefix)) return; //xfcnm ,jnf
-      if (msg.content.indexOf(prefix) !== 0) return; //часть бота
+      if (!msg.content.startsWith(prefix)) return; 
+      if (msg.content.indexOf(prefix) !== 0) return; 
   
-      let msgArray = msg.content.split(" "); //часть бота
-      let cmd = msgArray[0].toLocaleLowerCase(); //часть бота 
-      let args = msgArray.slice(1); //часть бота
+      let msgArray = msg.content.split(" "); 
+      let cmd = msgArray[0].toLocaleLowerCase(); 
+      let args = msgArray.slice(1); 
   
-      let commandfile = bot.commands.get(cmd.slice(prefix.length)); //часть бота
-      if (commandfile) commandfile.run(bot, msg, args); //часть бота
+      let commandfile = bot.commands.get(cmd.slice(prefix.length)); 
+      if (commandfile) commandfile.run(bot, msg, args);
   });
   
   bot.login(token);
